@@ -6,201 +6,6 @@ import java.util.Scanner;
 
 public class Aplicacao {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        imprimir("===================================\n" +
-                " Seja bem vindo ao banco do Anderson \n" +
-                "===================================");
-
-        imprimir("     Qual o seu nome?           ");
-        String nome = scanner.nextLine();
-
-        imprimir("===================================");
-        System.out.println("    Olá, "+nome);
-        imprimir("===================================");
-
-
-        int numeroConta = abrirConta();
-
-        // Conta = 1 poupanca
-        // Conta = 2 investimento
-        // Conta = 3 corrente
-        int conta = tipoConta(numeroConta);
-
-        boolean continuar = true;
-
-        PessoaFisica pf = new PessoaFisica();
-        PessoaJuridica pj = new PessoaJuridica();
-
-        do {
-            if (numeroConta == 1){
-                // Conta Pessoa fisica
-
-                imprimir("Qual operação deseja fazer? \n" +
-                        "1) Depositar \n" +
-                        "2) Sacar \n" +
-                        "3) Transferir \n" +
-                        "4) Exibir Extrato");
-
-                //Metodo para validar a operação desejada
-
-                int odf = escolhaMenu(1,4);
-
-                if (conta == 1 ){
-                    // Tipo da conta Poupanca
-                    // 1) depositar
-                    // 2) sacar
-                    // 3) transferir
-                    // 4) Exibir extrato
-                    if (odf == 1){
-                        // Tipo da conta Poupanca
-                        imprimir("Digite o valor que deseja depositar.");
-                        double x = entradaValor();
-                        pf.depositar(x,conta);
-                    } else if (odf == 2 ){
-                        imprimir("Digite o valor que deseja sacar.");
-                        double x = entradaValor();
-                        pf.sacar(x,conta);
-                    } else if (odf == 3 ) {
-                        imprimir("Valor que deseja transferir.");
-                        double x = entradaValor();
-                        imprimir("Qual conta deseja transferir? \n" +
-                                "2) Conta Investimento \n" +
-                                "3) Conta Corrente");
-                        int novaContaTransferir = escolhaMenu(2,3);
-                        pf.transferir(x, conta, novaContaTransferir);
-                    } else {
-                        pf.exibirSaldo(conta);
-                    }
-
-                } else if (conta == 2 ) {
-                    // Tipo da conta Investimento
-                    if (odf == 1){
-                        imprimir("Digite o valor que deseja depositar.");
-                        double x = entradaValor();
-                        pf.depositar(x,conta);
-                    } else if (odf == 2 ){
-                        imprimir("Digite o valor que deseja sacar.");
-                        double x = entradaValor();
-                        pf.sacar(x,conta);
-                    } else if (odf == 3 ) {
-                        imprimir("Valor que deseja transferir.");
-                        double x = entradaValor();
-                        imprimir("Qual conta deseja transferir? \n" +
-                                "1) Conta Poupanca \n" +
-                                "2) Conta Corrente");
-                        int novaContaTransferir = escolhaMenu(1,2);
-                        pf.transferir(x, conta, novaContaTransferir);
-                    } else {
-                        pf.exibirSaldo(conta);
-                    }
-
-                } else if (conta == 3 ) {
-                    // Tipo da conta Corrente
-                    if (odf == 1){
-                        imprimir("Digite o valor que deseja depositar.");
-                        double x = entradaValor();
-                        pf.depositar(x,conta);
-                    } else if (odf == 2 ){
-                        imprimir("Digite o valor que deseja sacar.");
-                        double x = entradaValor();
-                        pf.sacar(x,conta);
-                    } else if (odf == 3 ) {
-                        imprimir("Valor que deseja transferir.");
-                        double x = entradaValor();
-                        imprimir("Qual conta deseja transferir? \n" +
-                                "1) Conta Poupanca \n" +
-                                "2) Conta Investimento ");
-                        int novaContaTransferir = escolhaMenu(1,2);
-                        pf.transferir(x, conta, novaContaTransferir);
-                    } else {
-                        pf.exibirSaldo(conta);
-                    }
-                }
-
-            } else if (numeroConta == 2){
-                // Conta Pessoa Juridica
-
-                imprimir("Qual operação deseja fazer? \n" +
-                        "1) Depositar \n" +
-                        "2) Sacar \n" +
-                        "3) Transferir \n" +
-                        "4) Exibir Saldo");
-
-                int odf = escolhaMenu(1,4);
-
-                if (conta == 1 ){
-                    // Tipo da conta Poupanca
-                    System.out.println("Você não tem conta Poupança");
-
-                } else if (conta == 2 ) {
-
-                    // Tipo da conta Investimento
-                    if (odf == 1){
-                        imprimir("Digite o valor que deseja depositar.");
-                        double x = entradaValor();
-                        pj.depositar(x,conta);
-                    } else if (odf == 2 ){
-                        imprimir("Digite o valor que deseja sacar.");
-                        double x = entradaValor();
-                        pj.sacar(x,conta);
-                    } else if (odf == 3 ) {
-                        imprimir("Digite o valor que deseja transferir.");
-                        double x = entradaValor();
-
-                        imprimir("Qual conta deseja transferir? \n" +
-                                "1) Conta Corrente \n");
-                        int novaContaTransferir = escolhaMenu(1,1);
-                        pf.transferir(x, conta, novaContaTransferir);
-                    } else {
-                        pj.exibirSaldo(conta);
-                    }
-                } else if (conta == 3 ) {
-
-                    // Tipo da conta Corrente
-                    if (odf == 1){
-                        imprimir("Digite o valor que deseja depositar.");
-                        double x = entradaValor();
-                        pj.depositar(x,conta);
-                    } else if (odf == 2 ){
-                        imprimir("Digite o valor que deseja sacar.");
-                        double x = entradaValor();
-                        pj.sacar(x,conta);
-                    } else if (odf == 3 ) {
-                        imprimir("Digite o valor que deseja transferir.");
-                        double x = entradaValor();
-                        imprimir("Qual conta deseja transferir? \n" +
-                                "2) Conta Investimento ");
-                        int novaContaTransferir = escolhaMenu(2,2);
-                        pf.transferir(x, conta, novaContaTransferir);
-                    } else {
-                        pj.exibirSaldo(conta);
-                    }
-                }
-            }
-
-            System.out.println("Deseja continuar na mesma conta ? S ou N ");
-            String ctnMesmaConta = scanner.nextLine().toUpperCase(Locale.ROOT);
-            while (ctnMesmaConta.equals("N")) {
-                System.out.println("Deseja troca de conta? S ou N");
-                String ctnOutraConta = scanner.nextLine().toUpperCase(Locale.ROOT);
-                if (ctnOutraConta.equals("N")) {
-                    continuar = false;
-                    break;
-                }else if (ctnOutraConta.equals("S")){
-                    System.out.println("Qual conta quer usar ? \n" +
-                            "1) Conta Poupança \n" +
-                            "2) Conta Investimento \n" +
-                            "3) Conta Corrente");
-                    conta = Integer.parseInt(scanner.nextLine());
-                    break;
-                }
-            }
-        } while (continuar);
-        System.out.println("Até logo "+ nome+" !");
-    }
-
     public static void imprimir(String s){
         System.out.println(s);
     }
@@ -231,7 +36,6 @@ public class Aplicacao {
             return valorDigitado;
         } catch (Exception exception){
             System.out.println("ERRO - Valor digitado nao é um numero!");
-            System.out.println();
         }
         return 0;
     }
@@ -239,12 +43,15 @@ public class Aplicacao {
     public static int escolhaMenu(int menor, int maior){
 
         Scanner scanner = new Scanner(System.in);
-
-        int conta = Integer.parseInt(scanner.nextLine());
-
-        while (conta < menor || conta > maior){
-            conta = Integer.parseInt(entradaValor() +"");
-            break;
+        int conta = 0;
+        try {
+            conta = Integer.parseInt(scanner.nextLine());
+            while (conta < menor || conta > maior){
+                conta = Integer.parseInt(entradaValor() +"");
+                break;
+            }
+        } catch (Exception exception){
+            System.out.println("ERRO - Valor digitado nao é um numero! \n");
         }
         return conta;
     }
@@ -259,7 +66,7 @@ public class Aplicacao {
         } else if (numeroConta == 2 ){
             System.out.println("1) Voce não tem conta poupanca \n" +
                     "2) Conta Investimento \n" +
-                    "3) COnta Corrente");
+                    "3) Conta Corrente");
         } else {
             System.out.println("Erro ao validar o tipo da conta");
         }
@@ -267,5 +74,217 @@ public class Aplicacao {
         int conta = escolhaMenu(1,3);
 
         return conta;
+    }
+
+    public static void matrizDeString(int linha){
+
+        String[] matriz = new String[5];
+        matriz[0] = "===================================";
+        matriz[1] = " Seja bem vindo ao banco do Anderson ";
+
+        System.out.println(matriz[linha]);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        matrizDeString(0);
+        matrizDeString(1);
+        matrizDeString(0);
+
+        imprimir("     Qual o seu nome?           ");
+        String nome = scanner.nextLine();
+
+        matrizDeString(0);
+        System.out.println("\n    Olá, "+nome);
+        matrizDeString(0);
+
+
+        int numeroConta = abrirConta();
+
+        imprimir("Insira o numero da sua conta.");
+        int codigoDaConta = Integer.parseInt(scanner.nextLine());
+
+        // Conta = 1 poupanca
+        // Conta = 2 investimento
+        // Conta = 3 corrente
+        int conta = tipoConta(numeroConta);
+
+        boolean continuar = true;
+
+        PessoaFisica pessoaFisica = new PessoaFisica();
+        PessoaJuridica pessoaJuridica = new PessoaJuridica();
+
+        do {
+
+
+            if (numeroConta == 1){
+                // Conta Pessoa fisica
+                pessoaFisica.setNomeCliente(nome);
+                pessoaFisica.setNumConta(codigoDaConta);
+                imprimir("Qual operação deseja fazer? \n" +
+                        "1) Depositar \n" +
+                        "2) Sacar \n" +
+                        "3) Transferir \n" +
+                        "4) Exibir Extrato");
+
+                //Metodo para validar a operação desejada
+
+                int odf = escolhaMenu(1,4);
+
+                if (conta == 1 ){
+                    // Tipo da conta Poupanca
+                    // 1) depositar
+                    // 2) sacar
+                    // 3) transferir
+                    // 4) Exibir extrato
+                    if (odf == 1){
+                        // Tipo da conta Poupanca
+                        imprimir("Digite o valor que deseja depositar.");
+                        double x = entradaValor();
+                        pessoaFisica.depositar(x,conta);
+                    } else if (odf == 2 ){
+                        imprimir("Digite o valor que deseja sacar.");
+                        double x = entradaValor();
+                        pessoaFisica.sacar(x,conta);
+                    } else if (odf == 3 ) {
+                        imprimir("Valor que deseja transferir.");
+                        double x = entradaValor();
+                        imprimir("Qual conta deseja transferir? \n" +
+                                "2) Conta Investimento \n" +
+                                "3) Conta Corrente");
+                        int novaContaTransferir = escolhaMenu(2,3);
+                        pessoaFisica.transferir(x, conta, novaContaTransferir);
+                    } else {
+                        pessoaFisica.exibirSaldo(conta);
+                    }
+
+                } else if (conta == 2 ) {
+                    // Tipo da conta Investimento
+                    if (odf == 1){
+                        imprimir("Digite o valor que deseja depositar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaFisica.depositar(valorDeEntrada,conta);
+                    } else if (odf == 2 ){
+                        imprimir("Digite o valor que deseja sacar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaFisica.sacar(valorDeEntrada,conta);
+                    } else if (odf == 3 ) {
+                        imprimir("Valor que deseja transferir.");
+                        double valorDeEntrada = entradaValor();
+                        imprimir("Qual conta deseja transferir? \n" +
+                                "1) Conta Poupanca \n" +
+                                "2) Conta Corrente");
+                        int novaContaTransferir = escolhaMenu(1,2);
+                        pessoaFisica.transferir(valorDeEntrada, conta, novaContaTransferir);
+                    } else {
+                        pessoaFisica.exibirSaldo(conta);
+                    }
+
+                } else if (conta == 3 ) {
+                    // Tipo da conta Corrente
+                    if (odf == 1){
+                        imprimir("Digite o valor que deseja depositar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaFisica.depositar(valorDeEntrada,conta);
+                    } else if (odf == 2 ){
+                        imprimir("Digite o valor que deseja sacar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaFisica.sacar(valorDeEntrada,conta);
+                    } else if (odf == 3 ) {
+                        imprimir("Valor que deseja transferir.");
+                        double valorDeEntrada = entradaValor();
+                        imprimir("Qual conta deseja transferir? \n" +
+                                "1) Conta Poupanca \n" +
+                                "2) Conta Investimento ");
+                        int novaContaTransferir = escolhaMenu(1,2);
+                        pessoaFisica.transferir(valorDeEntrada, conta, novaContaTransferir);
+                    } else {
+                        pessoaFisica.exibirSaldo(conta);
+                    }
+                }
+
+            } else if (numeroConta == 2){
+                // Conta Pessoa Juridica
+                pessoaJuridica.setNomeCliente(nome);
+                pessoaJuridica.setNumConta(codigoDaConta);
+                imprimir("Qual operação deseja fazer? \n" +
+                        "1) Depositar \n" +
+                        "2) Sacar \n" +
+                        "3) Transferir \n" +
+                        "4) Exibir Saldo");
+
+                int odf = escolhaMenu(1,4);
+
+                if (conta == 1 ){
+                    // Tipo da conta Poupanca
+                    System.out.println("Você não tem conta Poupança");
+
+                } else if (conta == 2 ) {
+
+                    // Tipo da conta Investimento
+                    if (odf == 1){
+                        imprimir("Digite o valor que deseja depositar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaJuridica.depositar(valorDeEntrada,conta);
+                    } else if (odf == 2 ){
+                        imprimir("Digite o valor que deseja sacar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaJuridica.sacar(valorDeEntrada,conta);
+                    } else if (odf == 3 ) {
+                        imprimir("Digite o valor que deseja transferir.");
+                        double valorDeEntrada = entradaValor();
+
+                        imprimir("Qual conta deseja transferir? \n" +
+                                "1) Conta Corrente \n");
+                        int novaContaTransferir = escolhaMenu(1,1);
+                        pessoaJuridica.transferir(valorDeEntrada, conta, novaContaTransferir);
+                    } else {
+                        pessoaJuridica.exibirSaldo(conta);
+                    }
+                } else if (conta == 3 ) {
+
+                    // Tipo da conta Corrente
+                    if (odf == 1){
+                        imprimir("Digite o valor que deseja depositar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaJuridica.depositar(valorDeEntrada,conta);
+                    } else if (odf == 2 ){
+                        imprimir("Digite o valor que deseja sacar.");
+                        double valorDeEntrada = entradaValor();
+                        pessoaJuridica.sacar(valorDeEntrada,conta);
+                    } else if (odf == 3 ) {
+                        imprimir("Digite o valor que deseja transferir.");
+                        double valorDeEntrada = entradaValor();
+                        imprimir("Qual conta deseja transferir? \n" +
+                                "2) Conta Investimento ");
+                        int novaContaTransferir = escolhaMenu(2,2);
+                        pessoaJuridica.transferir(valorDeEntrada, conta, novaContaTransferir);
+                    } else {
+                        pessoaJuridica.exibirSaldo(conta);
+                    }
+                }
+            }
+
+            System.out.println("Deseja continuar na mesma conta ? S ou N ");
+            String ctnMesmaConta = scanner.nextLine().toUpperCase(Locale.ROOT);
+            while (ctnMesmaConta.equals("N")) {
+                System.out.println("Deseja troca de conta? S ou N");
+                String ctnOutraConta = scanner.nextLine().toUpperCase(Locale.ROOT);
+                if (ctnOutraConta.equals("N")) {
+                    continuar = false;
+                    break;
+                }else if (ctnOutraConta.equals("S")){
+                    System.out.println("Qual conta quer usar ? \n" +
+                            "1) Conta Poupança \n" +
+                            "2) Conta Investimento \n" +
+                            "3) Conta Corrente");
+                    conta = Integer.parseInt(scanner.nextLine());
+                    break;
+                }
+            }
+        } while (continuar);
+        System.out.println("Até logo "+ nome+" !");
     }
 }

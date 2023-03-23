@@ -3,10 +3,11 @@ package TiposCliente;
 import TiposConta.Conta;
 
 public class PessoaJuridica extends Cliente implements Conta{
+
     @Override
     public void depositar(double depositar, int tipoConta) {
         if(tipoConta == 1) {
-            System.out.println("Voce não tem conta poupança");
+            System.out.println("Voce não tem conta poupanca");
         } else if(tipoConta == 2) {
 //            Conta Investimento
 //            Rende 2% a mais
@@ -17,6 +18,7 @@ public class PessoaJuridica extends Cliente implements Conta{
             System.out.println("Deposito na conta investimento feito com sucesso!");
             System.out.println("Seu saldo é R$ "+getSaldoContaInvestimento());
         } else if(tipoConta == 3) {
+
 //            Conta Corrente
 //            double novoValor = getSaldoContaCorrente() + depositar;
             super.setSaldoContaCorrente(getSaldoContaCorrente() + depositar);
@@ -38,7 +40,7 @@ public class PessoaJuridica extends Cliente implements Conta{
 //                double valorAtual = super.getSaldoContaInvestimento();
 //                double novoValor = super.getSaldoContaInvestimento() - valorSacarComJuros;
                 super.setSaldoContaInvestimento(super.getSaldoContaInvestimento() - valorSacarComJuros);
-                System.out.println("Transferencia feita com sucesso! ");
+                System.out.println("Tranferencia feita com sucesso! ");
             } else {
                 System.out.println("Não tem saldo suficiente na conta Investimento!");
                 System.out.println("Seu saldo é: ");
@@ -58,6 +60,7 @@ public class PessoaJuridica extends Cliente implements Conta{
             }
         }
     }
+
     @Override
     public void transferir(double transferir, int tipoContaOrigem, int tipoContaDestino) {
 
@@ -89,13 +92,14 @@ public class PessoaJuridica extends Cliente implements Conta{
             }
         }
     }
+
     @Override
     public void exibirSaldo(int tipoConta) {
 
         String[] mostrarSaldoArray = new String[3];
 //        mostrarSaldoArray[0] ="Saldo Conta Poupança    R$ "+ getSaldoContaPoupanca();
-        mostrarSaldoArray[1] ="Saldo Conta Investimento R$ "+ getSaldoContaInvestimento();
-        mostrarSaldoArray[2] ="Saldo Conta Corrente    R$ "+ getSaldoContaCorrente();
+        mostrarSaldoArray[0] ="Saldo Conta Investimento R$ "+ getSaldoContaInvestimento();
+        mostrarSaldoArray[1] ="Saldo Conta Corrente    R$ "+ getSaldoContaCorrente();
 
         for ( String i : mostrarSaldoArray) {
             System.out.println(i);

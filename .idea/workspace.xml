@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d11e35f-f355-4720-a619-af9afae5e823" name="Changes" comment="">
+    <list default="true" id="1d11e35f-f355-4720-a619-af9afae5e823" name="Changes" comment="Projeto Banco">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Aplicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TiposCliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TiposCliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TiposCliente/PessoaFisica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TiposCliente/PessoaFisica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TiposCliente/PessoaJuridica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TiposCliente/PessoaJuridica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TiposConta/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TiposConta/Conta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +70,29 @@
       <option name="presentableId" value="Default" />
       <updated>1679496897363</updated>
     </task>
+    <task id="LOCAL-00001" summary="Projeto Banco">
+      <created>1679515998331</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679515998331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Projeto Banco" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projeto Banco" />
   </component>
 </project>

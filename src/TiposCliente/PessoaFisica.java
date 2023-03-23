@@ -3,6 +3,7 @@ package TiposCliente;
 import TiposConta.Conta;
 
 public class PessoaFisica extends Cliente implements Conta {
+
     @Override
     public void depositar(double depositar, int tipoConta) {
         if(tipoConta == 1) {
@@ -41,7 +42,7 @@ public class PessoaFisica extends Cliente implements Conta {
                 System.out.println("Seu saldo é: "+getSaldoContaPoupanca());
 
             } else {
-                System.out.println("Não tem saldo suficiente na conta poupança!");
+                System.out.println("Não tem saldo suficiente na conta poupanca!");
                 System.out.println("Seu saldo é: ");
                 exibirSaldo(1);
             }
@@ -71,6 +72,7 @@ public class PessoaFisica extends Cliente implements Conta {
             }
         }
     }
+
     @Override
     public void transferir(double transferir, int tipoContaOrigem, int tipoContaDestino) {
 
@@ -110,10 +112,11 @@ public class PessoaFisica extends Cliente implements Conta {
                 System.out.println("Tranferencia feita com sucesso! ");
                 System.out.println("Seu saldo é: "+getSaldoContaCorrente());
             } else {
-                System.out.println("Não tem saldo suficiente na sua conta corrente");
+                System.out.println("Não tem saldo suficiente na sua conta eorrente");
             }
         }
     }
+
     @Override
     public void exibirSaldo(int tipoConta) {
 
